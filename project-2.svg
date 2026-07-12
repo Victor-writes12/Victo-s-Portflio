@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1625"/>
+      <stop offset="100%" stop-color="#2d1f47"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8b5cf6" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <circle cx="400" cy="255" r="34" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M386 255 h28 M400 241 v28" stroke="#c4b5fd" stroke-width="2" stroke-opacity="0.5"/>
+  <text x="400" y="335" font-family="Arial, sans-serif" font-size="22" fill="#e9e4ff" text-anchor="middle" font-weight="600">Greys Inn — Hotel Site</text>
+  <text x="400" y="362" font-family="Arial, sans-serif" font-size="14" fill="#9891a8" text-anchor="middle">Replace with screenshot</text>
+</svg>
