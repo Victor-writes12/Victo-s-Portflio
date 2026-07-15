@@ -1,4 +1,3 @@
-// =====================================================
 // VICTOR UKPATA — PORTFOLIO
 // =====================================================
 
@@ -135,25 +134,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === CONTACT FORM (static handoff via mailto) ===
+ // === CONTACT ===
+  const EMAILJS_PUBLIC_KEY = 'fQ5LBRGPE0QwRAei2';
+  const EMAILJS_SERVICE_ID = 'service_itkncva';
+  const EMAILJS_NOTIFY_TEMPLATE = 'template_sdpczz8';
+  const EMAILJS_AUTOREPLY_TEMPLATE = 'template_0i9jc1k';
+
+  if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
+
   const form = document.getElementById('contactForm');
   const formNote = document.getElementById('formNote');
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const message = form.message.value.trim();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const params = {
+        from_name: name,
+        from_email: email,
+        to_name: name,
+        to_email: email,
+        email: email,
+        reply_to: email,
+        message: message
+      };
 
-      const subject = encodeURIComponent(`Project inquiry from ${name}`);
-      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-      window.location.href = `mailto:hello@example.com?subject=${subject}&body=${body}`;
+      submitBtn.disabled = true;
+      formNote.textContent = 'Sending your message…';
 
-      formNote.textContent = 'Opening your email app to send this message…';
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_TEMPLATE, params)
+        .then(() => emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_TEMPLATE, params))
+        .then(() => {
+          formNote.textContent = 'Message sent! Check your email for confirmation.';
+          form.reset();
+        })
+        .catch((err) => {
+          console.error('EmailJS error:', err && err.text ? err.text : err);
+          formNote.textContent = 'Something went wrong. Please email supportdoc11@gmail.com directly.';
+        })
+        .finally(() => { submitBtn.disabled = false; });
     });
   }
-
-  // === SMOOTH-SCROLL OFFSET FOR FIXED NAV ===
+// === SMOOTH-SCROLL OFFSET FOR FIXED NAV ===
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');
