@@ -888,3 +888,22 @@ button:focus-visible,
   transform: translateY(-3px);
 }
 .footer-copy { color: var(--text-faint); font-size: 12.5px; }
+
+/* === Overrides: force-remove purple ambient glows and button shadows === */
+/* Hide hero and tilt glows */
+.hero-blob, .tilt-card-glow, .consult-blob { display: none !important; }
+
+/* Remove button shadows, lifts and focus outlines */
+.btn, .btn-primary, .nav-cta { box-shadow: none !important; transform: none !important; }
+.btn:hover, .btn:active, .btn:focus, .btn:focus-visible, .nav-cta:focus { box-shadow: none !important; transform: none !important; outline: none !important; }
+
+/* Status dot for "Available for new projects" */
+.status-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52,211,153,0.6);
+  margin-right: 8px;
+  vertical-align: middle;
+}
