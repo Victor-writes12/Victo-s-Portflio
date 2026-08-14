@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfoliovictor1.netlify.app/sitemap.xml
+Sitemap: https://victor-writes12.github.io/Victo-s-Portflio/
 
 User-agent: GPTBot
 Allow: /
