@@ -1,11 +1,41 @@
 // VICTOR UKPATA — PORTFOLIO
 // =====================================================
-
+// === PRELOADER ===
+  const preloader = document.getElementById('preloader');
+  window.addEventListener('load', () => {
+    setTimeout(() => preloader.classList.add('hidden'), 400);
+  });
 document.addEventListener('DOMContentLoaded', () => {
 
   // === FOOTER YEAR ===
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // === THEME TOGGLE (light green/white default, dark mode optional) ===
+  const themeToggle = document.getElementById('themeToggle');
+  const rootEl = document.documentElement;
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+  if (savedTheme === 'dark') rootEl.setAttribute('data-theme', 'dark');
+
+  const syncToggleIcon = () => {
+    const icon = themeToggle.querySelector('i');
+    const isDark = rootEl.getAttribute('data-theme') === 'dark';
+    icon.classList.toggle('fa-moon', !isDark);
+    icon.classList.toggle('fa-sun', isDark);
+  };
+  syncToggleIcon();
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = rootEl.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      rootEl.removeAttribute('data-theme');
+      localStorage.setItem('portfolio-theme', 'light');
+    } else {
+      rootEl.setAttribute('data-theme', 'dark');
+      localStorage.setItem('portfolio-theme', 'dark');
+    }
+    syncToggleIcon();
+  });
 
   // === NAVBAR SCROLL STATE ===
   const navbar = document.getElementById('navbar');
