@@ -1,0 +1,15 @@
+# Victor Ukpata
+
+> Technical Writer & Web Developer/UI-UX Designer. Builds clean, elegant static websites — from school portals to hospitality and business sites.
+
+## About
+Victor Ukpata is a freelance technical writer and web developer based in Nigeria, specializing in vanilla HTML/CSS/JavaScript static websites, UI/UX design, and technical documentation.
+
+## Services
+- Custom website design and development
+- UI/UX design
+- Technical writing (documentation, SOPs, UX copy)
+
+## Contact
+- Email: Supportdoc11@gmail.com
+- GitHub: https://github.com/Victor-writes12
